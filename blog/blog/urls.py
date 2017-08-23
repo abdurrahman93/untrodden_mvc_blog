@@ -9,7 +9,6 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^register/', include('registration.backends.default.urls')),
     url(r'^$', home, name="home"),
     url(r'^create/$', create, name="create"),
     url(r'^google-contacts/$', user_contacts, name="google-contacts"),

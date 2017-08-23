@@ -2,7 +2,7 @@ import urllib.request
 from allauth.socialaccount.models import SocialAccount, SocialToken
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as Et
 
 from posts.models import Posts
 from posts.forms import CommentForm, PostForm
@@ -17,7 +17,7 @@ def user_contacts(request):
     req = urllib.request.Request(url, headers={
         'User-Agent': "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.30 (KHTML, like Gecko) Ubuntu/11.04 Chromium/12.0.742.112 Chrome/12.0.742.112 Safari/534.30"})
     contacts = urllib.request.urlopen(req).read()
-    contacts_xml = ET.fromstring(contacts)
+    contacts_xml = Et.fromstring(contacts)
 
     results = []
 

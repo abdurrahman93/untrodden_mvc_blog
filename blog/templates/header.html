@@ -23,10 +23,10 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
                     <li><a>Username: {{ request.user }}</a></li>
-                    <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
-                    <li><a href="{% url 'registration_register' %}">Register</a></li>
-                    <li><a href="{% url 'auth_login' %}">Login</a></li>
+{#                    <li><a href="{% url 'registration_register' %}">Register</a></li>#}
+{#                    <li><a href="{% url 'auth_login' %}">Login</a></li>#}
                     <li><a href="{% provider_login_url "google" process="login" %}">Login via Google</a></li>
             {%  endif %}
             </ul>

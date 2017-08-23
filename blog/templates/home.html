@@ -5,20 +5,25 @@
         <h1>{{ title }}</h1>
         {{ associated }}
         {{ social_details }}
-        {% for post in post_list %}
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3>
-                        <p>Author: {{ post.user }}</p>
-                        <p>{{ post.content }}</p>
-                        <p><a href="{{ post.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+        {% if post_list %}
+            {% for post in post_list %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h3>
+                            <p>Author: {{ post.user }}</p>
+                            <p>{{ post.content }}</p>
+                            <p><a href="{{ post.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+                        </div>
                     </div>
                 </div>
+                <hr/>
             </div>
-            <hr/>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <h4>No Posts to show</h4>
+            <a class="btn btn-info" href="{% url 'create' %}">Create Post</a>
+        {% endif %}
     </div>
 {% endblock %}
